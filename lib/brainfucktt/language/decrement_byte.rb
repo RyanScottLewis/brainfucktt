@@ -8,7 +8,7 @@ module Brainfucktt
       
       # Decrement the byte at the pointer.
       def run(parser)
-        parser.data[parser.pointer] -= 1
+        parser.byte -= 1
       end
       
     end

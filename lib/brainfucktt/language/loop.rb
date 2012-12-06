@@ -8,7 +8,7 @@ module Brainfucktt
       
       # Run the loop
       def run(parser)
-        elements.first.run(parser) until parser.data[parser.pointer].empty?
+        elements.first.run(parser) until parser.byte.empty?
       end
       
     end

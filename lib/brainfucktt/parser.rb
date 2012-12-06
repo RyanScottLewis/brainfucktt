@@ -59,6 +59,20 @@ module Brainfucktt
       @tree.run(self)
     end
     
+    # Returns the Byte instance within the @data collection at pointer.
+    # 
+    # @return [Brainfucktt::Byte]
+    def byte
+      @data[@pointer]
+    end
+    
+    # Set the value of the Byte instance within the @data collection at pointer.
+    # 
+    # @return [Brainfucktt::Byte]
+    def byte=(value)
+      @data[@pointer] = value
+    end
+    
   end
   
 end

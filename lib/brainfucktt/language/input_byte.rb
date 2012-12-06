@@ -8,7 +8,7 @@ module Brainfucktt
       
       # Input an ASCII character and store it in the byte at the pointer.
       def run(parser)
-        parser.data[parser.pointer] = get_character(parser.stdin)
+        parser.byte = get_character(parser.stdin)
       end
       
       protected
