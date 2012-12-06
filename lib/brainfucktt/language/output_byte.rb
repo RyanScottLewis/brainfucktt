@@ -8,7 +8,7 @@ module Brainfucktt
       
       # Output the byte at the pointer as an ASCII character.
       def run(parser)
-        parser.output.print parser.data[parser.pointer].chr
+        parser.output.print parser.data[parser.pointer].to_s
       end
       
     end

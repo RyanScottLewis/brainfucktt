@@ -4,8 +4,10 @@ require 'brainfucktt/byte'
 module Brainfucktt
   
   # An Array of Byte instances.
-  class Bytes
+  class Data
     include ConversionHelpers
+    
+    attr_reader :bytes
     
     def initialize
       @bytes = []
@@ -36,8 +38,8 @@ module Brainfucktt
       @bytes[offset] = convert_to_byte(value)
     end
     
-    # Fill from the end of the Bytes collection to the given offset with empty
-    # Byte instances, if Bytes collection is less than the given offset.
+    # Fill from the end of the Data collection to the given offset with empty
+    # Byte instances, if Data collection is less than the given offset.
     # 
     # @param [Integer, #to_i] offset
     # @raise [Brainfucktt::InvalidOffsetError] When the given offset cannot be converted into an Integer.

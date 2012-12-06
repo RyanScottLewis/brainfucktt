@@ -7,22 +7,32 @@ module Brainfucktt
     
   end
   
-  # Raised when the value set within a Bytes instance is greater than a byte or less than zero.
+  # Raised when the value set within a Data instance is greater than a byte or less than zero.
   class InvalidByteError < Error
     
     # @return [String] The error message.
     def to_s
-      'The value of a Byte must be and Integer or respond to to_i and be between 0 and 255'
+      'The value of a Byte must be an Integer or respond to to_i and be between 0 and 255'
     end
     
   end
   
-  # Raised when the value set within a Bytes instance is greater than a byte or less than zero.
+  # Raised when the offset given is notDatanteger.
   class InvalidOffsetError < Error
     
     # @return [String] The error message.
     def to_s
-      'The offset of a Byte must be and Integer or respond to to_i'
+      'The offset of a Byte must be an Integer or respond to to_i'
+    end
+    
+  end
+  
+  # Raised when the offset given is notDatash.
+  class InvalidOptionsError < Error
+    
+    # @return [String] The error message.
+    def to_s
+      'The options must be a Hash or respond to to_hash or to_h'
     end
     
   end

@@ -3,12 +3,14 @@ require 'treetop'
 require 'brainfucktt/errors'
 require 'brainfucktt/language'
 require 'brainfucktt/language_parser'
-require 'brainfucktt/bytes'
+require 'brainfucktt/data'
+require 'brainfucktt/conversion_helpers'
 
 module Brainfucktt
   
   # The Brainfuck parser.
   class Parser
+    include ConversionHelpers
     
     class << self
       
@@ -22,6 +24,7 @@ module Brainfucktt
       # Parse the given Brainfuck code.
       # 
       # @param [String, #to_s] code
+      # @raise [Brainfucktt::ParserError]
       # @return [Brainfucktt::Parser]
       def parse(code)
         tree = instance.parse(code)
@@ -42,14 +45,15 @@ module Brainfucktt
     attr_accessor :pointer
     
     def initialize(tree)
-      @data, @tree, @pointer = Bytes.new, tree, 0
+      @data, @tree, @pointer = Data.new, tree, 0
     end
       
     # Run the parsed Brainfuck code.
     # 
+    # @raise [Brainfucktt::InvalidOptionsError] When the given offset cannot be converted into an Integer.
     # @param [Hash, #to_hash, #to_h] options
     def run(options={})
-      options = { input: STDIN, output: STDOUT }.merge( convert_to_hash(options) )
+      options = { input: STDIN, output: STDOUT }.merge( convert_to_options(options) )
       
       @input, @output = options.values_at(:input, :output)
       @tree.run(self)
