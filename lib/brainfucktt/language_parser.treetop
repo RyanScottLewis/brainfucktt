@@ -1,0 +1,49 @@
+module Brainfucktt
+  grammar Language
+    
+    rule tree
+      (loop / increment_pointer / decrement_pointer / increment_byte / decrement_byte / input_byte / output_byte / ignored_character)* <Tree>
+    end
+    
+    rule ignored_character
+      !(begin_loop / end_loop / increment_pointer / decrement_pointer / increment_byte / decrement_byte / input_byte / output_byte) .
+    end
+    
+    rule loop
+      begin_loop tree end_loop <Loop>
+    end
+    
+    rule begin_loop
+      '['
+    end
+    
+    rule end_loop
+      ']'
+    end
+    
+    rule increment_pointer
+      '>' <IncrementPointer>
+    end
+    
+    rule decrement_pointer
+      '<' <DecrementPointer>
+    end
+    
+    rule increment_byte
+      '+' <IncrementByte>
+    end
+    
+    rule decrement_byte
+      '-' <DecrementByte>
+    end
+    
+    rule input_byte
+      ',' <InputByte>
+    end
+    
+    rule output_byte
+      '.' <OutputByte>
+    end
+    
+  end
+end
