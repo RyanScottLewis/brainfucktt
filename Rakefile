@@ -17,6 +17,7 @@ spec = Gem::Specification.new do |s|
   s.author = 'Ryan Scott Lewis'
   s.email = 'ryan@rynet.us'
   s.summary = 'A Brainfuck interpreter built in Ruby using Treetop.'
+  s.description = 'A Brainfuck interpreter built using Treetop.'
   
   # Dependencies
   s.add_dependency 'treetop', '~> 1.4'
@@ -34,7 +35,6 @@ spec = Gem::Specification.new do |s|
   # Pragmatically set variables
   s.homepage = "http://github.com/RyanScottLewis/#{s.name}"
   s.version = Pathname.glob('VERSION*').first.read
-  s.description = Pathname.glob('README*').first.read
   s.require_paths = ['lib']
   s.files        = `git ls-files`.lines.to_a.collect { |s| s.strip }
   s.executables  = `git ls-files -- bin/*`.lines.to_a.collect { |s| File.basename(s.strip) }

@@ -1,6 +1,6 @@
 # Brainfucktt
 
-A [Brainfuck][brainfuck] interpreter built in [Ruby][ruby] using [Treetop][treetop].
+A [Brainfuck][brainfuck] interpreter built in [Ruby][ruby] using [Treetop][treetop] on [treetop_bootstrap][treetop_bootstrap].
 
 Brainfuck is an eight-instruction turing-clomplete programming language created in 1993
 by Urban Müller, based on the more formal programming language [P′′][p''] created by Corrado
@@ -95,3 +95,4 @@ The MIT License (MIT) - See LICENSE for further details.
 [ruby]: http://ruby-lang.org
 [treetop]: http://treetop.rubyforge.org
 [p'']: http://en.wikipedia.org/wiki/P%E2%80%B2%E2%80%B2
+[treetop_bootstrap]: https://github.com/RyanScottLewis/treetop_bootstrap
