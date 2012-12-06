@@ -6,6 +6,8 @@ require 'brainfucktt/language_parser'
 require 'brainfucktt/bytes'
 
 module Brainfucktt
+  
+  # The Brainfuck parser.
   class Parser
     
     class << self
@@ -17,16 +19,22 @@ module Brainfucktt
         @instance ||= LanguageParser.new
       end
       
+      # Parse the given Brainfuck code.
+      # 
+      # @param [String, #to_s] code
       # @return [Brainfucktt::Parser]
-      def parse(data)
-        tree = instance.parse(data)
+      def parse(code)
+        tree = instance.parse(code)
         raise ParserError, instance unless tree
         
         new(tree)
       end
       
-      def run(data, options={})
-        parse(data).run(options)
+      # Parse and run the given Brainfuck code.
+      # 
+      # @param [String, #to_s] code
+      def run(code, options={})
+        parse(code).run(options)
       end
     end
     
@@ -36,16 +44,17 @@ module Brainfucktt
     def initialize(tree)
       @data, @tree, @pointer = Bytes.new, tree, 0
     end
-    
-    def run(options={})
-      raise TypeError, :options unless options.is_a?(Hash) || options.respond_to?(:to_hash) || options.respond_to?(:to_h)
-      options = options.to_hash rescue options.to_h unless options.is_a?(Hash)
       
-      options = { input: STDIN, output: STDOUT }.merge(options)
+    # Run the parsed Brainfuck code.
+    # 
+    # @param [Hash, #to_hash, #to_h] options
+    def run(options={})
+      options = { input: STDIN, output: STDOUT }.merge( convert_to_hash(options) )
       
       @input, @output = options.values_at(:input, :output)
       @tree.run(self)
     end
     
   end
+  
 end

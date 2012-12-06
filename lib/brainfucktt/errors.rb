@@ -12,11 +12,22 @@ module Brainfucktt
     
     # @return [String] The error message.
     def to_s
-      'A byte must be between 0 and 255'
+      'The value of a Byte must be and Integer or respond to to_i and be between 0 and 255'
     end
     
   end
   
+  # Raised when the value set within a Bytes instance is greater than a byte or less than zero.
+  class InvalidOffsetError < Error
+    
+    # @return [String] The error message.
+    def to_s
+      'The offset of a Byte must be and Integer or respond to to_i'
+    end
+    
+  end
+  
+  # Raised when the code being parsed has a syntax error.
   class ParserError < Error
     extend Forwardable
     
@@ -33,7 +44,7 @@ module Brainfucktt
     
     # @return [String]
     def to_s
-      reason || "Error at column #{column}, line #{line}"
+      "Error at column #{column}, line #{line} - '#{reason}'"
     end
     
   end

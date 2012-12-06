@@ -6,6 +6,7 @@ $:.unshift(__LIB__.to_s) unless $:.include?(__LIB__)
 
 require 'brainfucktt/parser'
 
+# A Brainfuck interpreter built in Ruby using Treetop.
 module Brainfucktt
   class << self
     extend Forwardable

@@ -1,17 +1,29 @@
 require 'treetop/runtime/syntax_node'
 
 module Brainfucktt
+  
+  # The base class for Brainfucktt syntax nodes in the AST
   class Node < Treetop::Runtime::SyntaxNode
     
     alias_method :elements_with_treetop, :elements
+    
+    # The children of this Node instance.
+    # 
+    # @return [<Brainfucktt::Node>]
     def elements
       elements_with_treetop.find_all { |node| node.is_a?(Brainfucktt::Node) } rescue []
     end
     
+    # Return the text value of this Node instance.
+    # 
+    # @return [String]
     def to_s
       text_value
     end
     
+    # Print out the AST of this instance node and it's children with indentation.
+    # 
+    # @return [String]
     def inspect(indent="")
       result = ""
       result << indent
@@ -29,4 +41,5 @@ module Brainfucktt
     end
     
   end
+  
 end

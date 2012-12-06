@@ -3,4 +3,4 @@ require_relative '../lib/brainfucktt'
 # "Hello World!" written in Brainfuck
 code = '++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.'
 
-Brainfucktt.run(code)
+p Brainfucktt.run(code)

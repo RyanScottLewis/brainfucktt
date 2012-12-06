@@ -3,7 +3,10 @@ require 'brainfucktt/node'
 module Brainfucktt
   module Language
     
+    # ,
     class InputByte < Node
+      
+      # Input an ASCII character and store it in the byte at the pointer.
       def run(parser)
         parser.data[parser.pointer] = get_character(parser.stdin)
       end
@@ -18,6 +21,7 @@ module Brainfucktt
           system("stty -raw echo")
         end
       end
+      
     end
     
   end
