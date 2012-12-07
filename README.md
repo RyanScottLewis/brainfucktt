@@ -72,7 +72,7 @@ parser.run
 
 Sometimes you do now want to use STDIN or STDOUT for the I/O of the Brainfuck program.
 
-To do that, you must use the stdlib `stringio`:
+To do that, you must use the stdlib `stringio` and pass the `:input` and `:output` options to the `run` method:
 
 ```ruby
 require 'brainfucktt'
