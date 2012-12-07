@@ -15,7 +15,9 @@ practical use.
 
 ### RubyGems: `gem install brainfucktt`
 
-## Brainfuck Instructions
+## Brainfuck
+
+### Instructions
 
 `>` Increment the data pointer (to point to the next cell to the right).
 
@@ -35,7 +37,7 @@ practical use.
 
 ### Comments
 
-Any character besides one of the 8 instructions above is not parsed and will be regarded as a comment.
+Any character besides one of the 8 instructions above is not parsed and will be regarded as a comment and ignored.
 
 ## Usage
 
